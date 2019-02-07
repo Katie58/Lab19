@@ -11,7 +11,7 @@ public class MyArrayList implements MyList {
 	
 	@Override
 	public boolean removeAt(int index) {
-		if (index < 0 || index > memory()) {
+		if (index < 0 || index > memory() - 1) {
 			return false;
 		}
 		array[index] = null;
@@ -24,7 +24,7 @@ public class MyArrayList implements MyList {
 	
 	@Override
 	public boolean insertAt(int index, String data) {
-		if (index < 0 || index > memory()) {
+		if (index < 0 || index > memory() - 1) {
 			return false;
 		}
 		if (isFull()) {
@@ -46,14 +46,12 @@ public class MyArrayList implements MyList {
 		} 
 		for (String s : array) {
 			if (s == null) {
-				System.out.println("test " + s + count);
 				break;
 			}
 			count++;
 		}
 		for (int i = count; i < memory() - 1; i++) {
 			array[i] = array[i + 1];
-			System.out.print("testing " + array[i]);
 		}
 		array[length - 1] = data;
 		length++;

@@ -9,15 +9,15 @@ public class MyLinkedList implements MyList {
 	@Override
 	public boolean removeAt(int index) {
 		Node pre = head;
-		Node node = getNodeAt(index);
+		Node remove = getNodeAt(index);
 		if (index < 0 || index > length) {
 			return false;
 		} 
 		for (int i = 0; i < index - 2; i++) {
-			pre = pre.getNext();
+			pre = pre.getNext();			
 		}
-		node.setNext(null);
-		pre.setNext(node.getNext().getNext());
+		pre.setNext(remove.getNext());
+		remove.setNext(null);
 		length--;
 		return true;
 	}
@@ -26,7 +26,7 @@ public class MyLinkedList implements MyList {
 	public boolean insertAt(int index, String data) {
 		Node pre = head;
 		Node node = new Node(data);
-		if (index < 0 || index > length) {
+		if (index < 0 || index > length - 1) {
 			return false;
 		} 
 		for (int i = 0; i < index - 2; i++) {
@@ -34,7 +34,7 @@ public class MyLinkedList implements MyList {
 		}
 		node.setNext(pre.getNext());
 		pre.setNext(node);
-		length--;
+		length++;
 		return true;
 	}
 	
