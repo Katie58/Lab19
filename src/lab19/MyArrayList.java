@@ -53,7 +53,7 @@ public class MyArrayList implements MyList {
 		for (int i = count; i < memory() - 1; i++) {
 			array[i] = array[i + 1];
 		}
-		array[length - 1] = data;
+		array[count] = data;		
 		length++;
 	}
 	
