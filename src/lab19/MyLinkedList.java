@@ -7,6 +7,38 @@ public class MyLinkedList implements MyList {
 	private int length = 0;
 	
 	@Override
+	public boolean removeAt(int index) {
+		Node pre = head;
+		Node node = getNodeAt(index);
+		if (index < 0 || index > length) {
+			return false;
+		} 
+		for (int i = 0; i < index - 2; i++) {
+			pre = pre.getNext();
+		}
+		node.setNext(null);
+		pre.setNext(node.getNext().getNext());
+		length--;
+		return true;
+	}
+	
+	@Override
+	public boolean insertAt(int index, String data) {
+		Node pre = head;
+		Node node = new Node(data);
+		if (index < 0 || index > length) {
+			return false;
+		} 
+		for (int i = 0; i < index - 2; i++) {
+			pre = pre.getNext();
+		}
+		node.setNext(pre.getNext());
+		pre.setNext(node);
+		length--;
+		return true;
+	}
+	
+	@Override
 	public void addAtBeginning(String data) {
 		Node node = new Node(data);
 		if (head != null) {

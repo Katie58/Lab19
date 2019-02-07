@@ -23,6 +23,9 @@ public class ListApp {
 		list.removeFromEnd();
 		System.out.println(list);
 		
+		list.insertAt(1, "X");
+		list.removeAt(1);
+		
 		System.out.println(list);
 		System.out.println(list.size());
 		System.out.println(list.get(0));
@@ -38,6 +41,9 @@ public class ListApp {
 		list.addAtEnd("D");
 		list.removeFromBeginning();
 		list.removeFromEnd();
+		
+		list.insertAt(1, "X");
+		list.removeAt(1);
 		
 		System.out.println(list);
 		System.out.println(list.size());

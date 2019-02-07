@@ -30,6 +30,17 @@ public interface MyList {
 	 * @param index zero-based index at which to find the item.
 	 * @return the item
 	 */
+	
+	boolean removeAt(int index);
+	/*   
+	 *Remove an object at a specified index. Returns false if the index is out of range. 
+	 */
+	
+	boolean insertAt(int index, String data);
+	/*   
+	 *Inserts a new item at a specified index. Returns false if the index is out of range. 
+	 */
+	
 	String get(int index);
 
 	/**

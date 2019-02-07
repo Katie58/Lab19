@@ -8,6 +8,36 @@ public class MyArrayList implements MyList {
 	// How many items are actually in the list. May be less than the length of the array.
 	private int length = 0;
 
+	
+	@Override
+	public boolean removeAt(int index) {
+		if (index < 0 || index > memory()) {
+			return false;
+		}
+		array[index] = null;
+		for (int i = index; i < memory() - 1; i++) {
+			array[i] = array[i + 1];
+		}
+		length--;
+		return true;
+	}
+	
+	@Override
+	public boolean insertAt(int index, String data) {
+		if (index < 0 || index > memory()) {
+			return false;
+		}
+		if (isFull()) {
+			doubleLength();
+		}
+		for (int i = memory() - 1; i > index; i--) {
+			array[i] = array[i - 1];
+		}
+		array[index] = data;
+		length++;
+		return true;
+	}
+	
 	@Override
 	public void addAtEnd(String data) {
 		int count = 0;
